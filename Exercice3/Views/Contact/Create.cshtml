@@ -1,0 +1,47 @@
+<!-- Create.cshtml -->
+@model Exercice3.Models.Contact
+@{
+    ViewData["Title"] = "Create Contact";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+
+
+<form asp-action="Create" method="post">
+    <label asp-for="Prenom"></label>: <input asp-for="Prenom" required><br>
+    <span asp-validation-for="Prenom" class="text-danger"></span>
+    <label asp-for="Nom"></label>: <input asp-for="Nom" required><br>
+    <span asp-validation-for="Nom" class="text-danger"></span>
+    <label asp-for="Couriel"></label>: <input asp-for="Couriel" type="Couriel" required><br>
+    <span asp-validation-for="Couriel" class="text-danger"></span>
+    <label asp-for="DateNaissance"></label>: <input asp-for="DateNaissance" type="date" required><br>
+    <span asp-validation-for="DateNaissance" class="text-danger"></span>
+    <label asp-for="TelephoneDomicile"></label>: <input asp-for="TelephoneDomicile" type="tel"required><br>
+    <span asp-validation-for="TelephoneDomicile" class="text-danger"></span>
+    <label asp-for="TelephoneMobile"></label>: <input asp-for="TelephoneMobile" type="tel"required><br>
+    <span asp-validation-for="TelephoneMobile" class="text-danger"></span>
+    <label asp-for="DA"></label>: <input asp-for="DA" type="number" required><br>
+    <span asp-validation-for="DA" class="text-danger"></span>
+    <label asp-for="Site"></label>: <input asp-for="Site" type="url" required><br>
+    <span asp-validation-for="Site" class="text-danger"></span>
+    <label asp-for="Couleur"></label>: <input asp-for="Couleur" type="color" value="#ff0000" required><br>
+    <span asp-validation-for="Couleur" class="text-danger"></span>
+    <label asp-for="Sexe"></label>: 
+    <span asp-validation-for="Sexe" class="text-danger"></span>
+    <input asp-for="Sexe" type="radio" value="homme">Homme
+    <input asp-for="Sexe" type="radio" value="femme">Femme<br>
+    <label asp-for="Programme"></label>: 
+    <select asp-for="Programme" required>
+        <option value="Info" selected>Informatique</option>
+        <option value="Admin">Administration</option>
+        <option value="Electro">Electronique</option>
+        <option value="Soins">Soins infirmier</option>
+    </select><br>
+    <span asp-validation-for="Programme" class="text-danger"></span>
+    <input type="submit" value="Create" />
+</form>
+
+@section Scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
